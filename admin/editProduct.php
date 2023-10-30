@@ -2,7 +2,7 @@
 include("inc/ahead.php");
 
 $sorgu = $baglanti->prepare("SELECT * FROM product WHERE Id=:id");
-$sorgu->execute(['id' => (int)$_GET["id"]]);
+$sorgu->execute(['id' => (int) $_GET["id"]]);
 $sonuc = $sorgu->fetch();
 
 if ($_POST) {
@@ -58,22 +58,22 @@ if ($_POST) {
                 IsActive=:aktif,ImageUrl=:url where Id=:id");
         $ekle = $ekleSorgu->execute([
             "baslik" => $_POST["Name"],
-            "category"=>(int)$_POST["Category"],
+            "category" => (int) $_POST["Category"],
             "metin" => $_POST["Desc"],
-            "ingred"=>$_POST["Ingredi"],
-            "price"=>(float)$_POST["Price"],
+            "ingred" => $_POST["Ingredi"],
+            "price" => (float) $_POST["Price"],
             "aktif" => $aktif,
             "url" => $url,
-            "id" => (int)$_GET["id"]
+            "id" => (int) $_GET["id"]
 
         ]);
         if ($ekle) {
             echo "başarılı";
-?>
+            ?>
             <script>
                 window.location.href = 'product.php'
             </script>
-<?php
+            <?php
 
         }
     } catch (Exception $e) {
@@ -99,45 +99,61 @@ if ($_POST) {
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
                         <form class="m-3" method="post" action="" enctype="multipart/form-data">
-                            <div class="input-group input-group-static my-3">
-                                <label class="form-label">Kategori</label>
-                                <input type="text" name="Category" value="<?= @$sonuc["CategoryId"] ?>" required class="form-control">
+                            <div class="input-group input-group-static mb-4">
+                                <label for="exampleFormControlSelect1" class="ms-0">Kategori</label>
+                                <select class="form-control" name="Category" id="exampleFormControlSelect1">
+                                    <?php
+                                    $category = $baglanti->prepare("SELECT * FROM category where IsDeleted=0 or IsDeleted=null");
+                                    $category->execute();
+                                    while ($sonuc = $category->fetch()) {
+                                        ?>
+                                        <option Name="Option" value="<?= $sonuc["Id"] ?>">
+                                            <?= $sonuc["Name"] ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">Ürün Adı</label>
-                                <input type="text" name="Name" value="<?= @$sonuc["Name"] ?>" required class="form-control">
+                                <input type="text" name="Name" value="<?= @$sonuc["Name"] ?>" required
+                                    class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">Açıklama</label>
-                                <input type="text" name="Desc" value="<?= @$sonuc["Description"] ?>" class="form-control">
+                                <input type="text" name="Desc" value="<?= @$sonuc["Description"] ?>"
+                                    class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">İçindekiler</label>
-                                <input type="text" name="Ingredi" value="<?= @$sonuc["Ingredients"] ?>" class="form-control">
+                                <input type="text" name="Ingredi" value="<?= @$sonuc["Ingredients"] ?>"
+                                    class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">Fiyat</label>
                                 <input type="number" name="Price" value="<?= @$sonuc["Price"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
-                                <img src="assets/img/<?= $sonuc["ImageUrl"] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                                <img src="assets/img/<?= $sonuc["ImageUrl"] ?>"
+                                    class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label>Yeni Resim</label>
                                 <input type="file" name="Url" class="form-control">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="x" name="active" <?= @$sonuc["IsActive"] == 1 ? "checked" : "" ?> id="fcustomCheck1">
+                                <input class="form-check-input" type="checkbox" value="x" name="active"
+                                    <?= @$sonuc["IsActive"] == 1 ? "checked" : "" ?> id="fcustomCheck1">
                                 <label class="custom-control-label" for="customCheck1">Aktif mi?</label>
                             </div>
                             <div class="row">
-                            <div class="form-group col-3">
-                                <input class="btn btn-success" type="submit" value="Kaydet" id="save">
-                            </div>
-                            <div class="form-group col-3">
-                                
-                                <a href="delete.php?name=product&id=<?=$sonuc["Id"]?>" class="btn btn-danger" type="button" value="Sil" id="delete">Sil</a>
-                            </div>
+                                <div class="form-group col-3">
+                                    <input class="btn btn-success" type="submit" value="Kaydet" id="save">
+                                </div>
+                                <div class="form-group col-3">
+
+                                    <a href="delete.php?name=product&id=<?= $sonuc["Id"] ?>" class="btn btn-danger"
+                                        type="button" value="Sil" id="delete">Sil</a>
+                                </div>
                             </div>
                         </form>
                     </div>
