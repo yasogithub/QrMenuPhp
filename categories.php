@@ -20,7 +20,7 @@ include("inc/head.php");
 
         <div class="logo">
 
-            <a href="https://notifybee.com.tr/interface?id=233"> <img src="https://notifybee.com.tr/public/upload/profil/202206091145531514308565.png" alt="" class="nav-icon-logo" />
+            <a href="categories.php"> <img src="https://notifybee.com.tr/public/upload/profil/202206091145531514308565.png" alt="" class="nav-icon-logo" />
             </a>
         </div>
 
@@ -54,7 +54,7 @@ include("inc/head.php");
                 <li class="vertical-menu__item--black-bg container-shadowed-2">
                     <a href="menus.php?id=<?=$sonuc["Id"]?>"> <img class="menu-bg" src="admin/assets/img/<?= $sonuc["ImageUrl"] ?>" style="width:100%;">
                         <div class="pb-0">
-                            <span><?=$sonuc["Name"]?></span>
+                            <h5><?=$sonuc["Name"]?></h5>
                         </div>
                     </a>
                 </li>

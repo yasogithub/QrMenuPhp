@@ -11,7 +11,7 @@ include("../inc/db.php");
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="utf-8" />
