@@ -2,8 +2,9 @@
 include("inc/db.php");
 include("inc/head.php");
 
-$id=$_GET["id"];
 
+if($_GET==null) {$id=1;}
+else {$id=$_GET["id"];}
 $query="SELECT * FROM category where Id=".$id;
 $sorgu = $baglanti->prepare($query);
 $sorgu->execute();
