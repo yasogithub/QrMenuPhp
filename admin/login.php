@@ -14,7 +14,7 @@ if ($_POST) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="utf-8" />
@@ -47,16 +47,20 @@ if ($_POST) {
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid ps-2 pe-0">
-                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="pages/dashboard.html">
+                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="login.php">
                             Qr Menu Admin Girişi
                         </a>
-                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon mt-2">
                                 <span class="navbar-toggler-bar bar1"></span>
                                 <span class="navbar-toggler-bar bar2"></span>
                                 <span class="navbar-toggler-bar bar3"></span>
                             </span>
+
+                        </button> -->
+
                         </button>
+
                         <!-- <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
@@ -68,7 +72,7 @@ if ($_POST) {
                                 <li class="nav-item">
                                     <a class="nav-link me-2" href="pages/profile.html">
                                         <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                        Profile
+                                        Profile sil
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -108,8 +112,8 @@ if ($_POST) {
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
-                                    <div class="row mt-3">
+                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Admin Panel Girişi</h4>
+                                    <!-- <div class="row mt-3">
                                         <div class="col-2 text-center ms-auto">
                                             <a class="btn btn-link px-3" href="javascript:;">
                                                 <i class="fa fa-facebook text-white text-lg"></i>
@@ -125,7 +129,7 @@ if ($_POST) {
                                                 <i class="fa fa-google text-white text-lg"></i>
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="card-body">
@@ -142,7 +146,7 @@ if ($_POST) {
                                         <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                                     </div> -->
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Giriş Yap</button>
                                     </div>
 
                                     <!-- <p class="mt-4 text-sm text-center">
@@ -161,6 +165,9 @@ if ($_POST) {
                                             $_SESSION["Oturum"] = 6789;
                                             $_SESSION["usernaname"] = $username;
                                             $_SESSION["role"] = $sonuc["Role"];
+                                            $_SESSION["name"]=$sonuc["Name"];
+                                            $_SESSION["surname"]=$sonuc["Surname"];
+                                            $_SESSION["id"]=$sonuc["Id"]
                                 ?>
                                             <script>
                                                 window.location.href = '<?php echo "index.php"; ?>'
@@ -200,29 +207,29 @@ if ($_POST) {
                                 © <script>
                                     document.write(new Date().getFullYear())
                                 </script>,
-                                made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold text-white" target="_blank">Creative Tim</a>
-                                for a better web.
+                                 <i class="font-weight-bold text-white" target="_blank"> Veysel Duran 
+                                <a></i> tarafından</a>
+                                geliştirildi.
                             </div>
                         </div>
 
 
-                        <div class="col-12 col-md-6">
+                        <!-- <div class="col-12 col-md-6">
                             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                                 <li class="nav-item">
-                                    <a href="https://www.creative-tim.com" class="nav-link text-white" target="_blank">Creative Tim</a>
+                                    <a href="https://veysell.github.io/" class="nav-link text-white" target="_blank">Creative Tim</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/presentation" class="nav-link text-white" target="_blank">About Us</a>
+                                    <a href="https://veysell.github.io/" class="nav-link text-white" target="_blank">About Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/blog" class="nav-link text-white" target="_blank">Blog</a>
+                                    <a href="https://veysell.github.io/" class="nav-link text-white" target="_blank">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-white" target="_blank">License</a>
+                                    <a href="https://veysell.github.io/" class="nav-link pe-0 text-white" target="_blank">License</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </footer>

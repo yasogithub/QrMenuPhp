@@ -52,7 +52,11 @@ $categResult = $sorgu->fetch();
 
 
         <div class="dark-vertical-menu__options d-flex justify-content-center">
+<<<<<<< HEAD
             <a href="categories.php" class="d-block text-white text-center mb-3"><?=$categResult["Name"]?><i class="fa-solid fa-angle-down ms-2"></i></a>
+=======
+            <a href="categories.php" class="d-block text-white text-center-lg mb-3"><?=$categResult["Name"]?><i class="fa-solid fa-angle-down ms-2"></i></a>
+>>>>>>> 8c022efe21c30829e8e4f2d26fe441449814b29b
         </div>
 
 
@@ -89,9 +93,9 @@ $categResult = $sorgu->fetch();
                             <span class="text-orange float-start mt-2 me-2"><?=$sonuc["Price"]?>TL</span>
                             <div class="float-end">
 
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#menuModal<?= $sonuc["Id"] ?>" class="form__btn">
+                                <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#menuModal<?= $sonuc["Id"] ?>" class="form__btn">
                                     <i class="fa-solid fa-eye"></i>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
