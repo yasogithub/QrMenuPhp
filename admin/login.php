@@ -57,7 +57,7 @@ if ($_POST) {
                                 <span class="navbar-toggler-bar bar3"></span>
                             </span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navigation">
+                        <!-- <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="pages/dashboard.html">
@@ -92,7 +92,7 @@ if ($_POST) {
                                     <a href="https://www.creative-tim.com/product/material-dashboard" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Free download</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </nav>
                 <!-- End Navbar -->
