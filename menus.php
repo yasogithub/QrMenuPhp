@@ -2,8 +2,9 @@
 include("inc/db.php");
 include("inc/head.php");
 
-$id=$_GET["id"];
 
+if($_GET==null) {$id=1;}
+else {$id=$_GET["id"];}
 $query="SELECT * FROM category where Id=".$id;
 $sorgu = $baglanti->prepare($query);
 $sorgu->execute();
@@ -51,7 +52,7 @@ $categResult = $sorgu->fetch();
 
 
         <div class="dark-vertical-menu__options d-flex justify-content-center">
-            <a href="https://notifybee.com.tr/menu?id=233" class="d-block text-white text-center mb-3"><?=$categResult["Name"]?><i class="fa-solid fa-angle-down ms-2"></i></a>
+            <a href="categories.php" class="d-block text-white text-center mb-3"><?=$categResult["Name"]?><i class="fa-solid fa-angle-down ms-2"></i></a>
         </div>
 
 
