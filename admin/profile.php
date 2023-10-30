@@ -1,7 +1,7 @@
 <?php
 include("inc/ahead.php");
 
-$queryString="select * from admin where Id=".$_SESSION["id"];
+$queryString = "select * from admin where Id=" . $_SESSION["id"];
 $sorgu = $baglanti->prepare($queryString);
 $sorgu->execute();
 $sonuc = $sorgu->fetch();
@@ -22,7 +22,7 @@ $sonuc = $sorgu->fetch();
             <div class="col-auto my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        <?= strtoupper($sonuc["Name"]), " ",strtoupper($sonuc["Surname"])?>
+                        <?= strtoupper($sonuc["Name"]), " ", strtoupper($sonuc["Surname"]) ?>
                     </h5>
                     <p class="mb-0 font-weight-normal text-sm">
                         Admin
@@ -32,7 +32,7 @@ $sonuc = $sorgu->fetch();
             <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                 <div class="nav-wrapper position-relative end-0">
                     <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
                                 <i class="material-icons text-lg position-relative">home</i>
                                 <span class="ms-1">App</span>
@@ -43,11 +43,11 @@ $sonuc = $sorgu->fetch();
                                 <i class="material-icons text-lg position-relative">email</i>
                                 <span class="ms-1">Messages</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                 <i class="material-icons text-lg position-relative">settings</i>
-                                <span class="ms-1">Settings</span>
+                                <span class="ms-1">Profil Ayarları</span>
                             </a>
                         </li>
                     </ul>
@@ -56,14 +56,27 @@ $sonuc = $sorgu->fetch();
         </div>
         <div class="row">
             <div class="row">
-                <div class="col-12 col-xl-4">
+                <div class="col-12 col-xl-6">
                     <div class="card card-plain h-100">
                         <div class="card-header pb-0 p-3">
-                            <h6 class="mb-0">Platform Settings</h6>
                         </div>
-                        <div class="card-body p-3">
-                            <h6 class="text-uppercase text-body text-xs font-weight-bolder">Account</h6>
-                            <ul class="list-group">
+                    <div class="card-body p-3">
+                        <form>
+                            <div class="input-group input-group-outline my-3">
+                                <label class="form-label">Kullanıcı Adını Giriniz</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="input-group input-group-outline my-3">
+                                <label class="form-label">Mevcut Şifreyi Giriniz</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="input-group input-group-outline my-3">
+                                <label class="form-label">Yeni Şifreyi Giriniz</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </form>
+                            <a class="btn bg-gradient-primary">Şifre Güncelle</a>
+                            <!-- <ul class="list-group">
                                 <li class="list-group-item border-0 px-0">
                                     <div class="form-check form-switch ps-0">
                                         <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
@@ -82,8 +95,8 @@ $sonuc = $sorgu->fetch();
                                         <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Email me when someone mentions me</label>
                                     </div>
                                 </li>
-                            </ul>
-                            <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Application</h6>
+                            </ul> -->
+                            <!-- <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Application</h6>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 px-0">
                                     <div class="form-check form-switch ps-0">
@@ -103,11 +116,11 @@ $sonuc = $sorgu->fetch();
                                         <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault5">Subscribe to newsletter</label>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-xl-4">
+                <!-- <div class="col-12 col-xl-4">
                     <div class="card card-plain h-100">
                         <div class="card-header pb-0 p-3">
                             <div class="row">
@@ -146,14 +159,28 @@ $sonuc = $sorgu->fetch();
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-xl-4">
+                </div> -->
+                <div class="col-12 col-xl-6">
                     <div class="card card-plain h-100">
                         <div class="card-header pb-0 p-3">
-                            <h6 class="mb-0">Conversations</h6>
                         </div>
                         <div class="card-body p-3">
-                            <ul class="list-group">
+                            <form>
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Mevcut Kullanıcı Adını Giriniz</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Şifrenizi Giriniz</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Yeni Kullanıcı Adını Giriniz</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </form>
+                            <a class="btn bg-gradient-primary">Kullanıcı Adını Değiştir</a>
+                            <!-- <ul class="list-group">
                                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
                                     <div class="avatar me-3">
                                         <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
@@ -204,11 +231,11 @@ $sonuc = $sorgu->fetch();
                                     </div>
                                     <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Reply</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-12 mt-4">
+                <!-- <div class="col-12 mt-4">
                     <div class="mb-5 ps-3">
                         <h6 class="mb-1">Projects</h6>
                         <p class="text-sm">Architects design houses</p>
@@ -363,7 +390,7 @@ $sonuc = $sorgu->fetch();
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

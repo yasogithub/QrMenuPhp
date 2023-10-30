@@ -26,17 +26,17 @@ function countProductByCategId($id, $baglanti)
       <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
           <div class="card-header p-3 pt-2">
-            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-              <img src="assets/img/<?= $sonuc["ImageUrl"] ?>" class="avatar avatar-xl me-3 border-radius-lg" alt="user1">
+            <div class="icon icon-xl icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <img src="assets/img/<?= $sonuc["ImageUrl"] ?>" class="avatar avatar-xxl me-3 border-radius-lg" alt="user1">
             </div>
             <div class="text-end pt-1">
-              <p class="text-sm mb-0 text-capitalize"><?= $sonuc["Name"] ?></p>
-              <h4 class="mb-0">Ürün Sayısı: <?= countProductByCategId($sonuc["Id"], $baglanti) ?></h4>
+              <h4 class="text-lg mb-0 "><?= $sonuc["Name"] ?></h4>
+              <p class="mb-0">Ürün Sayısı: <?= countProductByCategId($sonuc["Id"], $baglanti) ?></p>
             </div>
           </div>
           <hr class="dark horizontal my-0">
           <div class="card-footer p-3">
-            <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+            <!-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> -->
           </div>
         </div>
       </div>
