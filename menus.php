@@ -51,7 +51,7 @@ $categResult = $sorgu->fetch();
 
 
         <div class="dark-vertical-menu__options d-flex justify-content-center">
-            <a href="https://notifybee.com.tr/menu?id=233" class="d-block text-white text-center mb-3"><?=$categResult["Name"]?><i class="fa-solid fa-angle-down ms-2"></i></a>
+            <a href="categories.php" class="d-block text-white text-center mb-3"><?=$categResult["Name"]?><i class="fa-solid fa-angle-down ms-2"></i></a>
         </div>
 
 
