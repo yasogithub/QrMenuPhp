@@ -200,8 +200,8 @@ if ($_POST) {
                                 © <script>
                                     document.write(new Date().getFullYear())
                                 </script>,
-                                 <i class="fa fa-heart" aria-hidden="true"></i> tarafından
-                                <a href="https://veysell.github.io/" class="font-weight-bold text-white" target="_blank">Veysel Duran</a>
+                                 <i class="fa fa-heart" class="font-weight-bold text-white" target="_blank"> Veysel Duran 
+                                <a href="https://veysell.github.io/" aria-hidden="true"></i> tarafından</a>
                                 geliştirildi.
                             </div>
                         </div>
