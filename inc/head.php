@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Food In Box | Konyaaltı | Menu</title>
+  <title>Menü | Konyaaltı | Menu</title>
   <meta name="description" content="Food In Box | Konyaaltı şirketini Bildir üzerinden görüntüleyin." />
   <link rel="shortcut icon" href="https://notifybee.com.tr/public/upload/profil/202206091145531514308565.png" />
   <meta name="author" content="">
