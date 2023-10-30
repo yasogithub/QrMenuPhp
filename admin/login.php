@@ -56,7 +56,11 @@ if ($_POST) {
                                 <span class="navbar-toggler-bar bar2"></span>
                                 <span class="navbar-toggler-bar bar3"></span>
                             </span>
+
                         </button> -->
+
+                        </button>
+
                         <!-- <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
