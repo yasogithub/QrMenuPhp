@@ -68,7 +68,7 @@ if ($_POST) {
                                 <li class="nav-item">
                                     <a class="nav-link me-2" href="pages/profile.html">
                                         <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                        Profile
+                                        Profile sil
                                     </a>
                                 </li>
                                 <li class="nav-item">
