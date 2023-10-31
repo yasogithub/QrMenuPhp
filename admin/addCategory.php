@@ -24,7 +24,12 @@ if ($_POST) {
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+        echo "<script> Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Dosya Yüklenemedi',
+                                                    text: 'Aynı isimde bir dosyanız mevcut !',
+                                                })</script>";
         $uploadOk = 0;
     }
     // Allow certain file formats
@@ -32,16 +37,26 @@ if ($_POST) {
         $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif"
     ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+        echo "<script> Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Dosya Yüklenemedi',
+                                                    text: 'Dosya türünüz jpeg,jpg,gif,png türlerinden birisi olmalıdır.',
+                                                })</script>";
         $uploadOk = 0;
     }
     if ($uploadOk == 1) {
 
         if (move_uploaded_file($_FILES["Url"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["Url"]["name"])). " has been uploaded.";
-          } else {
-            echo "Sorry, there was an error uploading your file.";
-          }
+            //echo "The file " . htmlspecialchars(basename($_FILES["Url"]["name"])) . " has been uploaded.";
+        } else {
+            echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+            echo "<script> Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Dosya yüklenirken bir hata oluştu',
+                                                    text: 'Lütfen tekrar deneyiniz',
+                                                })</script>";
+        }
         try {
             $ekleSorgu = $baglanti->prepare("insert into category set Name=:baslik,Description=:metin,CreatedDate=:tarih,
                 IsActive=:aktif,ImageUrl=:url,IsDeleted=0");
@@ -50,16 +65,27 @@ if ($_POST) {
                 "metin" => $_POST["Desc"],
                 "tarih" => date('Y-m-d H:i:s'),
                 "aktif" => $aktif,
-                "url" => basename( $_FILES["Url"]["name"])
+                "url" => basename($_FILES["Url"]["name"])
             ]);
             if ($ekle) {
-                echo "başarılı";
+                echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+                echo "<script> Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Yeni Kategori Eklendi',
+                                                    text: 'Kolaylıklar Dileriz.',
+                                                })</script>";
+
+                ?>
+                <script>
+                    window.location.href = '<?php echo "category.php"; ?>'
+                </script>
+                <?php
             }
         } catch (Exception $e) {
-            echo $e;
+            //echo $e;
         }
     } else {
-        echo "hata";
+        //echo "hata";
     }
 }
 
@@ -83,7 +109,8 @@ if ($_POST) {
                         <form class="m-3" method="post" action="addCategory.php" enctype="multipart/form-data">
                             <div class="input-group input-group-outline my-3">
                                 <label class="form-label">Kategori Adı</label>
-                                <input type="text" name="Name" value="<?= @$_POST["Name"] ?>" required class="form-control">
+                                <input type="text" name="Name" value="<?= @$_POST["Name"] ?>" required
+                                    class="form-control">
                             </div>
                             <div class="input-group input-group-outline my-3">
                                 <label class="form-label">Açıklama</label>
@@ -91,10 +118,12 @@ if ($_POST) {
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label>ImageUrl</label>
-                                <input type="file" name="Url" src="assets/img/<?= @$_POST["Url"] ?>" value="<?= @$_POST["Url"] ?>" required class="form-control">
+                                <input type="file" name="Url" src="assets/img/<?= @$_POST["Url"] ?>"
+                                    value="<?= @$_POST["Url"] ?>" required class="form-control">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="x" name="active" <?= @$sonuc["active"] == 1 ? "checked" : "" ?> id="fcustomCheck1">
+                                <input class="form-check-input" type="checkbox" value="x" name="active"
+                                    <?= @$sonuc["active"] == 1 ? "checked" : "" ?> id="fcustomCheck1">
                                 <label class="custom-control-label" for="customCheck1">Aktif mi?</label>
                             </div>
                             <div class="form-group">
