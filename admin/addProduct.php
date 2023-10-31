@@ -26,7 +26,12 @@ if ($_POST) {
         }
         // Check if file already exists
         if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
+            echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+            echo "<script> Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Dosya Yüklenemedi',
+                                                    text: 'Aynı isimde bir dosyanız mevcut !',
+                                                })</script>";
             $uploadOk = 0;
         }
         // Allow certain file formats
@@ -34,7 +39,12 @@ if ($_POST) {
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif"
         ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+            echo "<script> Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Dosya Yüklenemedi',
+                                                    text: 'Dosya türünüz jpeg,jpg,gif,png türlerinden birisi olmalıdır.',
+                                                })</script>";
             $uploadOk = 0;
         }
         $url = basename($_FILES["Url"]["name"]);
@@ -42,9 +52,14 @@ if ($_POST) {
     if ($uploadOk == 1) {
 
         if (move_uploaded_file($_FILES["Url"]["tmp_name"], $target_file)) {
-            echo "The file " . htmlspecialchars(basename($_FILES["Url"]["name"])) . " has been uploaded.";
+            //echo "The file " . htmlspecialchars(basename($_FILES["Url"]["name"])) . " has been uploaded.";
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+            echo "<script> Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Dosya yüklenirken bir hata oluştu',
+                                                    text: 'Lütfen tekrar deneyiniz',
+                                                })</script>";
         }
     }
     try {
@@ -52,28 +67,34 @@ if ($_POST) {
                 IsActive=:aktif,ImageUrl=:url");
         $ekle = $ekleSorgu->execute([
             "baslik" => $_POST["Name"],
-            "category" => (int)$_POST["Category"],
+            "category" => (int) $_POST["Category"],
             "metin" => $_POST["Desc"],
             "ingred" => $_POST["Ingredi"],
-            "price" => (float)$_POST["Price"],
+            "price" => (float) $_POST["Price"],
             "aktif" => $aktif,
             "url" => $url,
 
         ]);
         if ($ekle) {
-            echo "başarılı";
-?>
+            echo '<script type="text/javascript" src="assets/css/sweetalert2.all.min.js"></script>';
+            echo "<script> Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Yeni Kategori Eklendi',
+                                                    text: 'Kolaylıklar Dileriz.',
+                                                })</script>";
+
+            ?>
             <script>
-                window.location.href = 'product.php'
+                window.location.href = '<?php echo "product.php"; ?>'
             </script>
-<?php
+            <?php
 
         }
     } catch (Exception $e) {
-        echo $e;
+        //echo $e;
     }
 
-    
+
 }
 
 
@@ -101,8 +122,10 @@ if ($_POST) {
                                     $category = $baglanti->prepare("SELECT * FROM category where IsActive=1");
                                     $category->execute();
                                     while ($sonuc = $category->fetch()) {
-                                    ?>
-                                        <option Name="Option" value="<?=$sonuc["Id"]?>"><?=$sonuc["Name"]?></option>
+                                        ?>
+                                        <option Name="Option" value="<?= $sonuc["Id"] ?>">
+                                            <?= $sonuc["Name"] ?>
+                                        </option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -128,7 +151,8 @@ if ($_POST) {
                                 <input type="file" name="Url" required class="form-control">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="x" name="active" id="fcustomCheck1">
+                                <input class="form-check-input" type="checkbox" value="x" name="active"
+                                    id="fcustomCheck1">
                                 <label class="custom-control-label" for="customCheck1">Aktif mi?</label>
                             </div>
                             <div class="row">

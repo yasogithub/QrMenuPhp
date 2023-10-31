@@ -3,13 +3,16 @@ include("inc/ahead.php");
 
 $id=$_GET["id"];
 $name=$_GET["name"];
-echo $id;
-echo $name;
-$query="update ".$name." set IsActive=0 , IsDeleted=1 WHERE Id=".$id;
+$image=$_GET["image"];
+
+$query="delete from ".$name." WHERE Id=".$id;
+$sorgu = $baglanti->prepare($query);
+if(unlink("assets/img/".$image)){
+    $sorgu->execute();
+}
+
 $sorgu = $baglanti->prepare($query);
 $sorgu->execute();
-$sonuc = $sorgu->fetch();
-
 ?>
 <script>
     window.location.href='<?php echo $name.".php";?>'
