@@ -118,13 +118,13 @@ if ($_POST) {
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
                         <form class="m-3" method="post" action="" enctype="multipart/form-data">
-                            <div class="input-group input-group-outline my-3">
-                                <label class="form-label">Kategori Adı</label>
+                            <div class="input-group input-group-static my-3">
+                                <label class="label">Kategori Adı</label>
                                 <input type="text" name="Name" value="<?= @$sonuc["Name"] ?>" required
                                     class="form-control">
                             </div>
-                            <div class="input-group input-group-outline my-3">
-                                <label class="form-label">Açıklama</label>
+                            <div class="input-group input-group-static my-3">
+                                <label class="label">Açıklama</label>
                                 <input type="text" name="Desc" value="<?= @$sonuc["Description"] ?>"
                                     class="form-control">
                             </div>
@@ -133,7 +133,7 @@ if ($_POST) {
                                     class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                             </div>
                             <div class="input-group input-group-static my-3">
-                                <label>Yeni Resim</label>
+                                <label class="label">Yeni Resim</label>
                                 <input type="file" name="Url" class="form-control">
                             </div>
                             <div class="form-check">

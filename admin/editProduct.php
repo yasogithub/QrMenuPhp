@@ -134,21 +134,21 @@ if ($_POST) {
                                 </select>
                             </div>
                             <div class="input-group input-group-static my-3">
-                                <label class="form-label">Ürün Adı</label>
+                                <label class="label">Ürün Adı</label>
                                 <input type="text" name="Name" value="<?= $sonuc["Name"] ?>" required
                                     class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
-                                <label class="form-label">Açıklama</label>
+                                <label class="label">Açıklama</label>
                                 <input type="text" name="Desc" value="<?= $sonuc["Description"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
-                                <label class="form-label">İçindekiler</label>
+                                <label class="label">İçindekiler</label>
                                 <input type="text" name="Ingredi" value="<?= $sonuc["Ingredients"] ?>"
                                     class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
-                                <label class="form-label">Fiyat</label>
+                                <label class="label">Fiyat</label>
                                 <input type="number" name="Price" value="<?= $sonuc["Price"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
