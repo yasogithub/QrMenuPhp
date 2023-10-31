@@ -134,7 +134,9 @@ if ($_POST) {
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="label">Yeni Resim</label>
-                                <input type="file" name="Url" class="form-control">
+                            </div>
+                            <div class="input-group input-group-static my-3">
+                                <input type="file" name="Url" class="control" >
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="x" name="active"
