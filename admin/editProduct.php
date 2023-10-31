@@ -105,27 +105,27 @@ if ($_POST) {
                                     <?php
                                     $category = $baglanti->prepare("SELECT * FROM category where IsActive=1");
                                     $category->execute();
-                                    while ($sonuc = $category->fetch()) {
+                                    while ($categ = $category->fetch()) {
                                     ?>
-                                        <option Name="Option" value="<?=$sonuc["Id"]?>"><?=$sonuc["Name"]?></option>
+                                        <option Name="Option" value="<?=$categ["Id"]?>"><?=$categ["Name"]?></option>
                                     <?php } ?>
                                 </select>
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">Ürün Adı</label>
-                                <input type="text" name="Name" value="<?= @$sonuc["Name"] ?>" required class="form-control">
+                                <input type="text" name="Name" value="<?=$sonuc["Name"] ?>" required class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">Açıklama</label>
-                                <input type="text" name="Desc" value="<?= @$sonuc["Description"] ?>" class="form-control">
+                                <input type="text" name="Desc" value="<?=$sonuc["Description"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">İçindekiler</label>
-                                <input type="text" name="Ingredi" value="<?= @$sonuc["Ingredients"] ?>" class="form-control">
+                                <input type="text" name="Ingredi" value="<?=$sonuc["Ingredients"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <label class="form-label">Fiyat</label>
-                                <input type="number" name="Price" value="<?= @$sonuc["Price"] ?>" class="form-control">
+                                <input type="number" name="Price" value="<?=$sonuc["Price"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <img src="assets/img/<?= $sonuc["ImageUrl"] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
@@ -135,7 +135,7 @@ if ($_POST) {
                                 <input type="file" name="Url" class="form-control">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="x" name="active" <?= @$sonuc["IsActive"] == 1 ? "checked" : "" ?> id="fcustomCheck1">
+                                <input class="form-check-input" type="checkbox" value="x" name="active" <?=$sonuc["IsActive"] == 1 ? "checked" : "" ?> id="fcustomCheck1">
                                 <label class="custom-control-label" for="customCheck1">Aktif mi?</label>
                             </div>
                             <div class="row">

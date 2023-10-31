@@ -103,7 +103,7 @@ if ($_POST) {
                             </div>
                             <div class="input-group input-group-outline my-3">
                                 <label class="form-label">Açıklama</label>
-                                <input type="text" name="Desc" value="<?= @$sonuc["Desc"] ?>" class="form-control">
+                                <input type="text" name="Desc" value="<?= @$sonuc["Description"] ?>" class="form-control">
                             </div>
                             <div class="input-group input-group-static my-3">
                                 <img src="assets/img/<?= $sonuc["ImageUrl"] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
