@@ -44,7 +44,7 @@ if ($_POST) {
           }
         try {
             $ekleSorgu = $baglanti->prepare("insert into category set Name=:baslik,Description=:metin,CreatedDate=:tarih,
-                IsActive=:aktif,ImageUrl=:url");
+                IsActive=:aktif,ImageUrl=:url,IsDeleted=0");
             $ekle = $ekleSorgu->execute([
                 "baslik" => $_POST["Name"],
                 "metin" => $_POST["Desc"],
