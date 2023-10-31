@@ -97,9 +97,17 @@ if ($_POST) {
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
                         <form class="m-3" method="post" action="" enctype="multipart/form-data">
-                            <div class="input-group input-group-outline my-3">
-                                <label class="form-label">Kategori Adı</label>
-                                <input type="text" name="Name" value="<?= @$sonuc["Name"] ?>" required class="form-control">
+                        <div class="input-group input-group-static mb-4">
+                                <label for="exampleFormControlSelect1" class="ms-0">Kategori</label>
+                                <select class="form-control" name="Category" id="exampleFormControlSelect1">
+                                    <?php
+                                    $category = $baglanti->prepare("SELECT * FROM category where IsActive=1");
+                                    $category->execute();
+                                    while ($sonuc = $category->fetch()) {
+                                    ?>
+                                        <option Name="Option" value="<?=$sonuc["Id"]?>"><?=$sonuc["Name"]?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="input-group input-group-outline my-3">
                                 <label class="form-label">Açıklama</label>

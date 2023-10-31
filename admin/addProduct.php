@@ -98,7 +98,7 @@ if ($_POST) {
                                 <label for="exampleFormControlSelect1" class="ms-0">Kategori</label>
                                 <select class="form-control" name="Category" id="exampleFormControlSelect1">
                                     <?php
-                                    $category = $baglanti->prepare("SELECT * FROM category where IsDeleted=0 or IsDeleted=null");
+                                    $category = $baglanti->prepare("SELECT * FROM category where IsActive=1");
                                     $category->execute();
                                     while ($sonuc = $category->fetch()) {
                                     ?>
